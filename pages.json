@@ -1,0 +1,88 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationStyle": "custom",
+				"enablePullDownRefresh": true
+			}
+		}, {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜一搜",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/category/category",
+			"style": {
+				"navigationBarTitleText": "分类",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/coupons/coupons",
+			"style": {
+				"navigationBarTitleText": "优惠券",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/shop-cart/shop-cart",
+			"style": {
+				"navigationBarTitleText": "购物车",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/my/my",
+			"style": {
+				"navigationBarTitleText": "个人中心",
+				"enablePullDownRefresh": false
+			}
+
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"usingComponents": {
+			"van-sticky": "/wxcomponents/vant/sticky/index"
+		}
+	},
+	"tabBar": {
+		"color": "#6e6d6b",
+		"selectedColor": "#e64340",
+		"backgroundColor": "fff",
+		"borderStyle": "white",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/images/nav/home-off.png",
+			"selectedIconPath": "static/images/nav/home-on.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/category/category",
+			"iconPath": "static/images/nav/fl-off.png",
+			"selectedIconPath": "static/images/nav/fl-on.png",
+			"text": "分类"
+		}, {
+			"pagePath": "pages/coupons/coupons",
+			"iconPath": "static/images/nav/coupon-off.png",
+			"selectedIconPath": "static/images/nav/coupon-on.png",
+			"text": "优惠券"
+		}, {
+			"pagePath": "pages/shop-cart/shop-cart",
+			"iconPath": "static/images/nav/cart-off.png",
+			"selectedIconPath": "static/images/nav/cart-on.png",
+			"text": "购物车"
+		}, {
+			"pagePath": "pages/my/my",
+			"iconPath": "static/images/nav/my-off.png",
+			"selectedIconPath": "static/images/nav/my-on.png",
+			"text": "我的"
+		}]
+	},
+	"uniIdRouter": {}
+}
