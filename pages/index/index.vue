@@ -77,7 +77,7 @@
 			let menuButtonInfo = uni.getMenuButtonBoundingClientRect() //自定义后的小程序胶囊按钮的布局位置信息
 			uni.getSystemInfo({
 				success: res => {
-					let statusBarHeight = res.statusBarHeight
+					let statusBarHeight = res.statusBarHeight //手机状态栏的高度
 					let navHeight = menuButtonInfo.height
 					this.navStyle = {
 						height: statusBarHeight + navHeight + (menuButtonInfo.top -
