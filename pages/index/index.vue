@@ -1,63 +1,64 @@
 <template>
-	<!-- 上导航栏 -->
-	<van-sticky>
-		<view class="search-container">
-			<view class="search" :style="navStyle">
-				<view class="search-title" :style="titleStyle">
-					优购商城
+	<view>
+		<!-- 上导航栏 -->
+		<van-sticky>
+			<view class="search-container">
+				<view class="search" :style="navStyle">
+					<view class="search-title" :style="titleStyle">
+						优购商城
+					</view>
+					<input placeholder-class="search-placeholder" type="text" placeholder="输入关键词搜索" disabled
+						:style="inputStyle" value="" @click="goSearch">
 				</view>
-				<input placeholder-class="search-placeholder" type="text" placeholder="输入关键词搜索" disabled
-					:style="inputStyle" value="" @click="goSearch">
 			</view>
-		</view>
-	</van-sticky>
-	<!--上导航栏 -->
+		</van-sticky>
+		<!--上导航栏 -->
 
-	<!-- 轮播图 -->
-	<swiper indicator-dots indicator-active-color="#fff" autoplay circular interval="3000" duration="1000">
-		<swiper-item v-for="item in swiperList" :key="item.goods_id">
-			<navigator class="swiper-item" :url="`/subpkg/goods_detail/goods_detail?goods_id='item.goods_id'`">
-				<image mode="widthFix" lazy-load="true" :src="item.image_src"></image>
-			</navigator>
-		</swiper-item>
-	</swiper>
-	<!-- 轮播图 -->
-
-	<!-- 分类导航区域 -->
-	<view class="nav-list">
-		<view class="nav-item" v-for="item in navList" :key="item.name" @click="navClickHandler(item)">
-			<image class="nav-img" :src="item.image_src"></image>
-		</view>
-	</view>
-	<!-- 分类导航 区域-->
-
-	<!-- 楼层区域 -->
-	<view class="floor-list">
-		<!-- 楼层 item 项 -->
-		<view class="floor-item" v-for="item in floorList" :key="item.name">
-			<!-- 楼层标题 -->
-			<image class="floor-title" mode="widthFix" :src="item.floor_title.image_src"></image>
-			<!-- 楼层图片区域 -->
-			<view class="floor-img-box">
-				<!-- 左侧大图区域 -->
-				<navigator class="letf-img-box" :url="item.product_list[0].url">
-					<image mode="widthFix" :src="item.product_list[0].image_src"
-						:style="{width:item.product_list[0].image_width + 'rpx'}"></image>
+		<!-- 轮播图 -->
+		<swiper indicator-dots indicator-active-color="#fff" autoplay circular interval="3000" duration="1000">
+			<swiper-item v-for="item in swiperList" :key="item.goods_id">
+				<navigator class="swiper-item" :url="`/subpkg/goods_detail/goods_detail?goods_id='item.goods_id'`">
+					<image mode="widthFix" lazy-load="true" :src="item.image_src"></image>
 				</navigator>
-				<!-- 右侧小图区域 -->
-				<view class="right-img-box">
-					<template v-for="(item2,i2) in item.product_list" :key="item2.name">
-						<navigator class="right-img-item" :url="item2.url" v-if="i2 !== 0">
-							<image mode="widthFix" :style="{width:item2.image_width + 'rpx'}" :src="item2.image_src">
-							</image>
-						</navigator>
-					</template>
+			</swiper-item>
+		</swiper>
+		<!-- 轮播图 -->
+
+		<!-- 分类导航区域 -->
+		<view class="nav-list">
+			<view class="nav-item" v-for="item in navList" :key="item.name" @click="navClickHandler(item)">
+				<image class="nav-img" :src="item.image_src"></image>
+			</view>
+		</view>
+		<!-- 分类导航 区域-->
+
+		<!-- 楼层区域 -->
+		<view class="floor-list">
+			<!-- 楼层 item 项 -->
+			<view class="floor-item" v-for="item in floorList" :key="item.name">
+				<!-- 楼层标题 -->
+				<image class="floor-title" mode="widthFix" :src="item.floor_title.image_src"></image>
+				<!-- 楼层图片区域 -->
+				<view class="floor-img-box">
+					<!-- 左侧大图区域 -->
+					<navigator class="letf-img-box" :url="item.product_list[0].url">
+						<image mode="widthFix" :src="item.product_list[0].image_src"
+							:style="{width:item.product_list[0].image_width + 'rpx'}"></image>
+					</navigator>
+					<!-- 右侧小图区域 -->
+					<view class="right-img-box">
+						<template v-for="(item2,i2) in item.product_list" :key="item2.name">
+							<navigator class="right-img-item" :url="item2.url" v-if="i2 !== 0">
+								<image mode="widthFix" :style="{width:item2.image_width + 'rpx'}"
+									:src="item2.image_src">
+								</image>
+							</navigator>
+						</template>
+					</view>
 				</view>
 			</view>
 		</view>
 	</view>
-
-
 </template>
 
 <script>
@@ -109,7 +110,7 @@
 		methods: {
 			goSearch() {
 				uni.navigateTo({
-					url: '/pages/search/search'
+					url: '/subpkg/search/search'
 				})
 			},
 			async getSwiperList() {

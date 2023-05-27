@@ -15,13 +15,6 @@
 				"enablePullDownRefresh": true
 			}
 		}, {
-			"path": "pages/search/search",
-			"style": {
-				"navigationBarTitleText": "搜一搜",
-				"enablePullDownRefresh": false
-			}
-
-		}, {
 			"path": "pages/coupons/coupons",
 			"style": {
 				"navigationBarTitleText": "优惠券",
@@ -97,6 +90,13 @@
 			"path": "goods_list/goods_list",
 			"style": {
 				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "search/search",
+			"style": {
+				"navigationBarTitleText": "搜一搜",
 				"enablePullDownRefresh": false
 			}
 

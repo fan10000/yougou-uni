@@ -1,26 +1,31 @@
 <template>
-	<view class="scroll-container">
-		<!-- 左侧滚动区域 -->
-		<scroll-view scroll-y class="left-scroll-view" :style="{height:wh +'px'}">
-			<view v-for="(item,i) in cateList" :key="item.car_id" :class="['left-item',i === navIndex ? 'active' : '']"
-				@click="changedIndex(i)">
-				{{item.cat_name}}
-			</view>
-		</scroll-view>
-		<!-- 右侧滚动区域 -->
-		<scroll-view scroll-y class="right-scroll-view" :style="{height:wh +'px'}" :scroll-top="scrollTop">
-			<view class="cate-lv2" v-for="item2 in cateLevel2" :key="item2.cat_id">
-				<view class="cate-lv2-title">{{item2.cat_name}}</view>
-				<!-- 三级分类列表 -->
-				<view class="cate-lv3-list">
-					<view class="cate-lv3-item" v-for="item3 in item2.children" :key="item3.cat_id"
-						@click="gotoGoodsList(item3)">
-						<image :src="item3.cat_icon"></image>
-						<text>{{item3.cat_name}}</text>
+	<view>
+		<van-sticky>
+			<my-search bgcolor="#f7f8fA" radius="32rpx" @clickSearch="goSearch"></my-search>
+		</van-sticky>
+		<view class="scroll-container">
+			<!-- 左侧滚动区域 -->
+			<scroll-view scroll-y class="left-scroll-view" :style="{height:wh +'px'}">
+				<view v-for="(item,i) in cateList" :key="item.car_id"
+					:class="['left-item',i === navIndex ? 'active' : '']" @click="changedIndex(i)">
+					{{item.cat_name}}
+				</view>
+			</scroll-view>
+			<!-- 右侧滚动区域 -->
+			<scroll-view scroll-y class="right-scroll-view" :style="{height:wh +'px'}" :scroll-top="scrollTop">
+				<view class="cate-lv2" v-for="item2 in cateLevel2" :key="item2.cat_id">
+					<view class="cate-lv2-title">{{item2.cat_name}}</view>
+					<!-- 三级分类列表 -->
+					<view class="cate-lv3-list">
+						<view class="cate-lv3-item" v-for="item3 in item2.children" :key="item3.cat_id"
+							@click="gotoGoodsList(item3)">
+							<image :src="item3.cat_icon"></image>
+							<text>{{item3.cat_name}}</text>
+						</view>
 					</view>
 				</view>
-			</view>
-		</scroll-view>
+			</scroll-view>
+		</view>
 	</view>
 
 </template>
@@ -40,10 +45,16 @@
 		},
 		onLoad() {
 			const sysInfo = uni.getSystemInfoSync()
-			this.wh = sysInfo.windowHeight
+			this.wh = sysInfo.windowHeight - 50
 			this.getCateList() //请求数据
 		},
 		methods: {
+			// 监听自定义搜索组件的点击事件
+			goSearch() {
+				uni.navigateTo({
+					url: '/subpkg/search/search'
+				})
+			},
 			async getCateList() {
 				const { data: res } = await uni.$http.get('/api/public/v1/categories')
 				if (res.meta.status !== 200) uni.$showMsg()
