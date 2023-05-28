@@ -6,7 +6,7 @@
 		</view>
 		<!-- 搜索结果列表 -->
 		<view class="search-list" v-if="searchResult.length !== 0">
-			<view class="search-item" v-for="item in searchResult.goods" :key="item.goods_id"
+			<view class="search-item" v-for="item in searchResult" :key="item.goods_id"
 				@click="goDetail(item.goods_id)">
 				<view class="goods_name">{{item.goods_name}}</view>
 				<uni-icons type="arrow-right" size="16"></uni-icons>
@@ -54,8 +54,8 @@
 					this.searchResult = []
 					return
 				}
-				const { data: res } = await uni.$http.get('/api/public/v1/goods/search', { query: this.kw })
-				if (res.meta.status !== 200) uni.$showMsg()
+				const { data: res } = await uni.$http.get('/api/public/v1/goods/qsearch', { query: this.kw })
+				if (res.meta.status !== 200) return uni.$showMsg()
 				this.searchResult = res.message
 				// 保存搜索关键词
 				this.saveSearchHistory()

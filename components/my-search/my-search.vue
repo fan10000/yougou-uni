@@ -1,8 +1,8 @@
 <template>
 	<view>
-		<view class="my-search-container" :style="{'background-color':$props.bgcolor}" @click="$emit('clickSearch')">
+		<view class="my-search-container" :style="{'background-color':bgcolor}" @click="$emit('clickSearch')">
 			<!-- 使用 view 组件模拟 input 输入框的样式 -->
-			<view class="search-box" :style="{'border-radius':$props.radius}">
+			<view class="search-box" :style="{'border-radius':radius}">
 				<uni-icons type="search" size="17"></uni-icons>
 				<text class="placeholder">搜索</text>
 			</view>
