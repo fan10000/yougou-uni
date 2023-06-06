@@ -1,8 +1,6 @@
 <template>
 	<view>
-		<van-sticky>
-			<my-search bgcolor="#f7f8fA" radius="32rpx" @clickSearch="goSearch"></my-search>
-		</van-sticky>
+		<my-search bgcolor="#f7f8fA" radius="32rpx" @clickSearch="goSearch"></my-search>
 		<view class="scroll-container">
 			<!-- 左侧滚动区域 -->
 			<scroll-view scroll-y class="left-scroll-view" :style="{height:wh +'px'}">

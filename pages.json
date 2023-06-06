@@ -43,9 +43,7 @@
 		"navigationBarTitleText": "",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
-		"usingComponents": {
-			"van-sticky": "/wxcomponents/vant/sticky/index"
-		}
+		"usingComponents": {}
 	},
 	"tabBar": {
 		"color": "#6e6d6b",
@@ -62,11 +60,6 @@
 			"iconPath": "static/images/nav/fl-off.png",
 			"selectedIconPath": "static/images/nav/fl-on.png",
 			"text": "分类"
-		}, {
-			"pagePath": "pages/coupons/coupons",
-			"iconPath": "static/images/nav/coupon-off.png",
-			"selectedIconPath": "static/images/nav/coupon-on.png",
-			"text": "优惠券"
 		}, {
 			"pagePath": "pages/cart/cart",
 			"iconPath": "static/images/nav/cart-off.png",

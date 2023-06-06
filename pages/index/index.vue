@@ -1,17 +1,15 @@
 <template>
 	<view>
 		<!-- 上导航栏 -->
-		<van-sticky>
-			<view class="search-container">
-				<view class="search" :style="navStyle">
-					<view class="search-title" :style="titleStyle">
-						优购商城
-					</view>
-					<input placeholder-class="search-placeholder" type="text" placeholder="输入关键词搜索" disabled
-						:style="inputStyle" value="" @click="goSearch">
+		<view class="search-container">
+			<view class="search" :style="navStyle">
+				<view class="search-title" :style="titleStyle">
+					优购商城
 				</view>
+				<input placeholder-class="search-placeholder" type="text" placeholder="输入关键词搜索" disabled
+					:style="inputStyle" value="" @click="goSearch">
 			</view>
-		</van-sticky>
+		</view>
 		<!--上导航栏 -->
 
 		<!-- 轮播图 -->
@@ -147,6 +145,10 @@
 
 <style lang="scss">
 	.search-container {
+		position: sticky;
+		z-index: 999;
+		left: 0;
+		top: 0;
 		background-color: white;
 	}
 
